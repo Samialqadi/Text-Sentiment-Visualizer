@@ -1,4 +1,6 @@
 # Final Project Proposal
+## My background
+I am a CS + Ling major, so I have a good idea by now of linguistic sentiment analysis. For this project, much of the NLP will be taken off my shoulders through the API used, however I will likely find my background useful when it comes to extending the project later on. Also, I have experience implementing APIs and JSON from this course and previous course, so I should be able to use these experiences for the project's success.
 ## What I want my project to do:
 I would like my project to visualize a body of text. 
 ### Minimum Viable Product: 
