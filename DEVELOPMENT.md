@@ -16,4 +16,4 @@ It took quite a while to find the libraries and API that I needed to use for my 
 I have added another library from what I initially thought I needed in order to make POST requests to the API. I had to go through many different libraries in order to find one that wasn't convoluted and poorly documented. I ended up with https://github.com/mrtazz/restclient-cpp and with this I can now call the API.
 I have also added yet another library from what I initially intended to parse JSON as this one is much more popular and better documented. 
 https://github.com/open-source-parsers/jsoncpp
-Moving away from the technical side of things, I created mockup GUI designs to help guide me throughout the frontend development of the project.
+Moving away from the technical side of things, I created mockup GUI designs to help guide me throughout the frontend development of the project. These can be found at https://imgur.com/a/sbkLiQH
