@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 907C5B5E104864A2D3A25745 /* ofxToggle.cpp */; };
 		36CFBEAF226AE9D300F9240D /* sentiment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CFBEAD226AE9D300F9240D /* sentiment.cpp */; };
-		36CFBEB2226AEA2500F9240D /* string_to_json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CFBEB0226AEA2500F9240D /* string_to_json.cpp */; };
+		36CFBEB2226AEA2500F9240D /* json_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CFBEB0226AEA2500F9240D /* json_handler.cpp */; };
 		36CFBEBA226D24A600F9240D /* librestclient-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CFBEB9226D24A600F9240D /* librestclient-cpp.a */; };
 		483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D67A00EB899FAC09430597 /* ofxLabel.cpp */; };
 		5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88333E71C9457E441C33474 /* ofxButton.cpp */; };
@@ -45,8 +45,8 @@
 		2834D88A62CD23F3DE2C47D1 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxButton.h; path = ../../../addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
 		36CFBEAD226AE9D300F9240D /* sentiment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sentiment.cpp; sourceTree = "<group>"; };
 		36CFBEAE226AE9D300F9240D /* sentiment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = sentiment.hpp; sourceTree = "<group>"; };
-		36CFBEB0226AEA2500F9240D /* string_to_json.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = string_to_json.cpp; sourceTree = "<group>"; };
-		36CFBEB1226AEA2500F9240D /* string_to_json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = string_to_json.hpp; sourceTree = "<group>"; };
+		36CFBEB0226AEA2500F9240D /* json_handler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = json_handler.cpp; sourceTree = "<group>"; };
+		36CFBEB1226AEA2500F9240D /* json_handler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json_handler.hpp; sourceTree = "<group>"; };
 		36CFBEB4226AF04200F9240D /* rapidjson */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rapidjson; sourceTree = "<group>"; };
 		36CFBEB6226D244500F9240D /* emotion-motion.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "emotion-motion.xcodeproj"; sourceTree = "<group>"; };
 		36CFBEB9226D24A600F9240D /* librestclient-cpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "librestclient-cpp.a"; path = "../../../../../../../usr/local/Cellar/restclient-cpp/0.4.4/lib/librestclient-cpp.a"; sourceTree = "<group>"; };
@@ -632,8 +632,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				36CFBEAD226AE9D300F9240D /* sentiment.cpp */,
 				36CFBEAE226AE9D300F9240D /* sentiment.hpp */,
-				36CFBEB0226AEA2500F9240D /* string_to_json.cpp */,
-				36CFBEB1226AEA2500F9240D /* string_to_json.hpp */,
+				36CFBEB0226AEA2500F9240D /* json_handler.cpp */,
+				36CFBEB1226AEA2500F9240D /* json_handler.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -743,7 +743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				36CFBEB2226AEA2500F9240D /* string_to_json.cpp in Sources */,
+				36CFBEB2226AEA2500F9240D /* json_handler.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,

@@ -10,10 +10,10 @@
 
 #include "restclient-cpp/connection.h"
 #include "restclient-cpp/restclient.h"
+#include "json_handler.hpp"
 
-void test2() {
-    std::cout << "Under the bed" << std::endl;
 
+std::string ToneAnalyzer(std::string json) {
     // initialize RestClient
     RestClient::init();
     
@@ -28,11 +28,14 @@ void test2() {
     
     // set different content header for POST, PUT and PATCH
     conn->AppendHeader("Content-Type", "application/json");
-    RestClient::Response post = conn->post("/v3/tone?version=2017-09-21", "{\"text\": \"I hate these new features On #ThisPhone after the update. I hate #ThisPhoneCompany products, you'd have to torture me to get me to use #ThisPhone. The emojis in #ThisPhone are stupid. #ThisPhone is a useless, stupid waste of money. #ThisPhone is the worst phone I've ever had - ever 😠. #ThisPhone another ripoff, lost all respect SHAME. I'm worried my #ThisPhone is going to overheat like my brother's did. #ThisPhoneCompany really let me down... my new phone won't even turn on.\"}");
+    RestClient::Response post = conn->post("/v3/tone?version=2017-09-21", json);
     
     std::cout << post.body;
     
     // deinit RestClient. After calling this you have to call RestClient::init()
     // again before you can use it
     RestClient::disable();
+    
+    return post.body;
 }
+

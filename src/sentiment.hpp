@@ -10,6 +10,6 @@
 
 #include <stdio.h>
 
-void test2();
+std::string ToneAnalyzer(std::string json);
 
 #endif /* sentiment_hpp */

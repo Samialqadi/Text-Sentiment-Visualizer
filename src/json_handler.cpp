@@ -1,11 +1,11 @@
 //
-//  string_to_json.cpp
+//  json_handler.cpp
 //  emotion-motion
 //
 //  Created by Sami Alqadi on 4/20/19.
 //
 
-#include "string_to_json.hpp"
+#include "json_handler.hpp"
 
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
@@ -44,4 +44,20 @@ void test() {
             }
         }
     }
+}
+
+std::string BuildJson(const std::string input) {
+    rapidjson::StringBuffer json_string;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(json_string);
+    
+    char char_array[input.length() + 1];
+    strcpy(char_array, input.c_str()); 
+
+    
+    writer.StartObject();
+    writer.Key("text");
+    writer.String(char_array);
+    writer.EndObject();
+    
+    return json_string.GetString();
 }
