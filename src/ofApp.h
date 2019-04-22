@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxCenteredTrueTypeFont.h"
 
-class ofApp : public ofBaseApp{
+class ofApp : public ofBaseApp {
 
 	public:
 		void setup();
@@ -20,5 +21,13 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+    
+    enum InputState {
+        TAKE_USER_INPUT = false,
+        DONT_TAKE_USER_INPUT = true
+    };
+    
+    InputState current_state_;
+    
+    ofxCenteredTrueTypeFont title;
 };

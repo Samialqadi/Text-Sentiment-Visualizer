@@ -50,6 +50,7 @@
 		36CFBEB4226AF04200F9240D /* rapidjson */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rapidjson; sourceTree = "<group>"; };
 		36CFBEB6226D244500F9240D /* emotion-motion.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "emotion-motion.xcodeproj"; sourceTree = "<group>"; };
 		36CFBEB9226D24A600F9240D /* librestclient-cpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "librestclient-cpp.a"; path = "../../../../../../../usr/local/Cellar/restclient-cpp/0.4.4/lib/librestclient-cpp.a"; sourceTree = "<group>"; };
+		36CFBED8226E499400F9240D /* ofxCenteredTrueTypeFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCenteredTrueTypeFont.h; sourceTree = "<group>"; };
 		44B351490B620D04E1E7C52D /* ofxInputField.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxInputField.cpp; path = ../../../addons/ofxGui/src/ofxInputField.cpp; sourceTree = SOURCE_ROOT; };
 		489B196944B06ADC2A071076 /* ofxColorPicker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxColorPicker.h; path = ../../../addons/ofxGui/src/ofxColorPicker.h; sourceTree = SOURCE_ROOT; };
 		52AFA1F08C420992CAAAE648 /* ofxSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSlider.h; path = ../../../addons/ofxGui/src/ofxSlider.h; sourceTree = SOURCE_ROOT; };
@@ -313,6 +314,7 @@
 				C70D8946940288799E82131E /* ofxSliderGroup.h */,
 				907C5B5E104864A2D3A25745 /* ofxToggle.cpp */,
 				0A1DAC09F322AE313A40706D /* ofxToggle.h */,
+				36CFBED8226E499400F9240D /* ofxCenteredTrueTypeFont.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
