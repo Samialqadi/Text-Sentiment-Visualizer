@@ -11,6 +11,9 @@
 		36CFBEAF226AE9D300F9240D /* sentiment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CFBEAD226AE9D300F9240D /* sentiment.cpp */; };
 		36CFBEB2226AEA2500F9240D /* json_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CFBEB0226AEA2500F9240D /* json_handler.cpp */; };
 		36CFBEBA226D24A600F9240D /* librestclient-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CFBEB9226D24A600F9240D /* librestclient-cpp.a */; };
+		36CFBEDB226E8B8B00F9240D /* sentences_tone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CFBED9226E8B8B00F9240D /* sentences_tone.cpp */; };
+		36CFBEDE227508F300F9240D /* particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CFBEDC227508F300F9240D /* particle.cpp */; };
+		36CFBEE022768D8700F9240D /* json_handler_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CFBEDF22768D8700F9240D /* json_handler_test.cpp */; };
 		483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D67A00EB899FAC09430597 /* ofxLabel.cpp */; };
 		5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88333E71C9457E441C33474 /* ofxButton.cpp */; };
 		837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F2C6477A769C03A56D1401 /* ofxSlider.cpp */; };
@@ -51,6 +54,12 @@
 		36CFBEB6226D244500F9240D /* emotion-motion.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "emotion-motion.xcodeproj"; sourceTree = "<group>"; };
 		36CFBEB9226D24A600F9240D /* librestclient-cpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "librestclient-cpp.a"; path = "../../../../../../../usr/local/Cellar/restclient-cpp/0.4.4/lib/librestclient-cpp.a"; sourceTree = "<group>"; };
 		36CFBED8226E499400F9240D /* ofxCenteredTrueTypeFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCenteredTrueTypeFont.h; sourceTree = "<group>"; };
+		36CFBED9226E8B8B00F9240D /* sentences_tone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sentences_tone.cpp; sourceTree = "<group>"; };
+		36CFBEDA226E8B8B00F9240D /* sentences_tone.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = sentences_tone.hpp; sourceTree = "<group>"; };
+		36CFBEDC227508F300F9240D /* particle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = particle.cpp; sourceTree = "<group>"; };
+		36CFBEDD227508F300F9240D /* particle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = particle.hpp; sourceTree = "<group>"; };
+		36CFBEDF22768D8700F9240D /* json_handler_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = json_handler_test.cpp; sourceTree = "<group>"; };
+		36CFBEE322768E3A00F9240D /* catch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
 		44B351490B620D04E1E7C52D /* ofxInputField.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxInputField.cpp; path = ../../../addons/ofxGui/src/ofxInputField.cpp; sourceTree = SOURCE_ROOT; };
 		489B196944B06ADC2A071076 /* ofxColorPicker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxColorPicker.h; path = ../../../addons/ofxGui/src/ofxColorPicker.h; sourceTree = SOURCE_ROOT; };
 		52AFA1F08C420992CAAAE648 /* ofxSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSlider.h; path = ../../../addons/ofxGui/src/ofxSlider.h; sourceTree = SOURCE_ROOT; };
@@ -628,12 +637,18 @@
 			children = (
 				36CFBEB4226AF04200F9240D /* rapidjson */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				36CFBEE322768E3A00F9240D /* catch.hpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				36CFBEAD226AE9D300F9240D /* sentiment.cpp */,
 				36CFBEAE226AE9D300F9240D /* sentiment.hpp */,
 				36CFBEB0226AEA2500F9240D /* json_handler.cpp */,
 				36CFBEB1226AEA2500F9240D /* json_handler.hpp */,
+				36CFBEDF22768D8700F9240D /* json_handler_test.cpp */,
+				36CFBED9226E8B8B00F9240D /* sentences_tone.cpp */,
+				36CFBEDA226E8B8B00F9240D /* sentences_tone.hpp */,
+				36CFBEDC227508F300F9240D /* particle.cpp */,
+				36CFBEDD227508F300F9240D /* particle.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -743,9 +758,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				36CFBEDE227508F300F9240D /* particle.cpp in Sources */,
 				36CFBEB2226AEA2500F9240D /* json_handler.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				36CFBEE022768D8700F9240D /* json_handler_test.cpp in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
+				36CFBEDB226E8B8B00F9240D /* sentences_tone.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
 				853E0BA2F448076739446874 /* ofxColorPicker.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,

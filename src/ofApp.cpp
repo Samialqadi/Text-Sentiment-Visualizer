@@ -2,35 +2,60 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
-    ofBackground(63, 128, 170);  // Sets the background color to blue
-    
-    current_state_ = TAKE_USER_INPUT;
-    
     title.load("AntipastoPro-Hairline_trial.ttf", 40);
     
+    ofSetVerticalSync(true);
+    
+    //Call API and build vector from user input
+    std::string answer = ofSystemTextBoxDialog("What text would you like to put into motion?");
+    sentence_tones = Parser(ToneAnalyzer(BuildJson(answer)));
+
+    particles.assign(num_of_particles * sentence_tones.size(), Particle());
+
+    resetParticles();
+}
+
+//--------------------------------------------------------------
+void ofApp::resetParticles() {
+    for (unsigned int i = 0; i < particles.size(); i++) {
+        particles[i].reset();
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
-
+    for (unsigned int i = 0; i < particles.size(); i++) {
+        particles[i].update();
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-    ofSetColor(54, 110, 145);
-    ofDrawRectangle(ofGetWidth() * 0.5, ofGetHeight() * 0.5, 500, 100);
-    
-    ofSetColor(255, 255, 255);
-    title.drawString("test", 400, 400);
-    
-    switch (current_state_) {
-    case TAKE_USER_INPUT:
-        std::string answer = ofSystemTextBoxDialog("What text would you like to put into motion?");
-        //call function that calls api
-        std::cout << answer << std::endl;
-        current_state_ = DONT_TAKE_USER_INPUT;
-        break;
+    ofBackgroundGradient(ofColor(60, 60, 60), ofColor(10, 10, 10));
+
+    double last_frame = 0.0;
+    if (ofGetLastFrameTime() < 0.5) {
+        last_frame = ofGetLastFrameTime();
     }
+    
+    if (total_frame_time >= 5.0) {
+        current_num++;
+        total_frame_time = 0.0;
+    }
+    
+    if (current_num < sentence_tones.size()) {
+        ofSetColor(255, 255, 255);
+        title.drawString(sentence_tones[current_num].text, ofGetWidth() / 2, ofGetHeight() / 2);
+
+        for (int j = 0; j <= current_num; ++j) {
+            std::cout << sentence_tones[j].tones[0].tone_id << std::endl;
+            for (unsigned int i = num_of_particles * j; i < num_of_particles * (j + 1); i++) {
+                particles[i].draw(sentence_tones[j].tones[0].tone_id);
+            }
+        }
+    }
+    
+    total_frame_time += last_frame;
 }
 
 //--------------------------------------------------------------
