@@ -15,7 +15,7 @@
 class SentencesTone {
 public:
     struct Tone {
-        int score;
+        double score;
         std::string tone_id;
         std::string tone_name;
         

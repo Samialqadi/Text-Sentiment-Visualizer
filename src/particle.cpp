@@ -30,12 +30,12 @@ void Particle::reset() {
 
 //------------------------------------------------------------------
 void Particle::update() {
-    //1 - APPLY THE FORCES BASED ON WHICH MODE WE ARE IN
+    //1 - APPLY THE FORCES
     
     ofPoint attractPt(ofGetWidth() / 2, ofGetHeight() / 2);
     frc = attractPt - pos;
     
-    //let get the distance and only repel points close to the mouse
+    //Get the distance and only repel points close to the mouse
     float dist = frc.length();
     frc.normalize();
     

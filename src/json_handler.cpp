@@ -25,6 +25,7 @@ std::vector<SentencesTone::Sentence> Parser(std::string json) {
         SentencesTone::Sentence sentence;
         
         sentence.text = document["sentences_tone"][i]["text"].GetString();
+        sentence.sentence_id = document["sentences_tone"][i]["sentence_id"].GetInt();
         
         for (int j = 0; j < document["sentences_tone"][i]["tones"].Size(); j++) {
             SentencesTone::Tone tone;

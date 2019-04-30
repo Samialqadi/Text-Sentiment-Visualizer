@@ -29,8 +29,7 @@ std::string ToneAnalyzer(std::string json) {
     conn->AppendHeader("Content-Type", "application/json");
     RestClient::Response post = conn->post("/v3/tone?version=2017-09-21", json);
         
-    // deinit RestClient. After calling this you have to call RestClient::init()
-    // again before you can use it
+    // deinit RestClient
     RestClient::disable();
     
     delete conn;
