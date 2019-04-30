@@ -36,4 +36,3 @@ std::string ToneAnalyzer(std::string json) {
     
     return post.body;
 }
-
