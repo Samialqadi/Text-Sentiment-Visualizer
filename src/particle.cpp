@@ -73,12 +73,15 @@ void Particle::update() {
 
 //------------------------------------------------------------------
 void Particle::draw(std::string tone) {
-    if (tone == "joy") {
+    if (tone == "") {
+        ofColor white(255, 255, 255);
+        ofSetColor(white);
+    } else if (tone == "joy") {
         ofColor yellow(255, 255, 0);
         ofSetColor(yellow);
     } else if (tone == "fear") {
-        ofColor white(255, 255, 255);
-        ofSetColor(white);
+        ofColor black(0, 0, 0);
+        ofSetColor(black);
     } else if (tone == "sadness") {
         ofColor blue(0, 0, 255);
         ofSetColor(blue);

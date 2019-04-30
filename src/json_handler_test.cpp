@@ -82,3 +82,9 @@ TEST_CASE("JSON being built properly") {
 
     REQUIRE(input_as_json == expected_json);
 }
+
+TEST_CASE("empty json") {
+    std::string json = "{}";
+
+    std::vector<SentencesTone::Sentence> sentence_tones = Parser(json);
+}

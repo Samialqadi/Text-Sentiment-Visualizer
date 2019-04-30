@@ -19,5 +19,6 @@
 
 std::vector<SentencesTone::Sentence> Parser(std::string json);
 std::string BuildJson(std::string input);
+bool IsValidJson(std::string json);
 
 #endif /* json_handler_hpp */

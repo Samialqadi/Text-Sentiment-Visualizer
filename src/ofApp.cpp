@@ -45,12 +45,12 @@ void ofApp::draw() {
     
     if (current_num < sentence_tones.size()) {
         ofSetColor(255, 255, 255);
-        title.drawString(sentence_tones[current_num].text, ofGetHeight() / 2, ofGetWidth() / 2);
+        title.drawString(sentence_tones[current_num].text, ofGetWidth() / 2, ofGetHeight() / 2);
 
         for (int sen = 0; sen <= current_num; ++sen) {
             for (unsigned int i = num_of_particles * sen; i < num_of_particles * (sen + 1); i++) {
                 //Not always going to have a tone. Implement something here to fix this
-                particles[i].draw(sentence_tones[sen].tones[0].tone_id);
+                particles[i].draw(FindStrongestTone(sentence_tones[sen].tones));
             }
         }
     }

@@ -15,6 +15,10 @@
 std::vector<SentencesTone::Sentence> Parser(std::string json) {
     std::vector<SentencesTone::Sentence> sentence_tones;
     
+    if (!IsValidJson(json)) {
+        return sentence_tones;
+    }
+    
     std::vector<char> vector_cpy(json.length() + 1);
     strcpy(vector_cpy.data(), json.c_str());
     
@@ -57,4 +61,8 @@ std::string BuildJson(const std::string input) {
     writer.EndObject();
     
     return json_string.GetString();
+}
+
+bool IsValidJson(std::string json) {
+    return !(json == "{}" || json == "{\"code\":400,\"sub_code\":\"C00007\",\"error\":\"No text given\"}" || json == "{\"document_tone\":{\"tones\":[]}}");
 }

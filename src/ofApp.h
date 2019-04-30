@@ -4,6 +4,7 @@
 #include "particle.hpp"
 #include "json_handler.hpp"
 #include "sentiment.hpp"
+#include "sentences_tone.hpp"
 #include "ofxCenteredTrueTypeFont.h"
 
 class ofApp : public ofBaseApp {
