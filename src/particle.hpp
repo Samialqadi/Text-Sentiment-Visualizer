@@ -11,26 +11,44 @@
 #include <stdio.h>
 #include "ofMain.h"
 
+// Modified from openFrameworks Example particle system
 class Particle {
     
 public:
     Particle();
     
-    void setAttractPoints(vector<ofPoint> *attract);
+    void SetAttractPoints(vector<ofPoint> *attract);
     
-    void reset();
-    void update();
-    void draw(std::string tone);
+    void Reset();
+    void Update();
+    void Draw(std::string tone);
     
-    ofPoint pos;
-    ofPoint vel;
-    ofPoint frc;
+    void ApplyForces();
+    void UpdatePosition();
+    void RestrictToScreen();
     
+    int kRandomLower = -10000;
+    int kRandomUpper = 10000;
+    double kVelocityLower = -3.9;
+    double kVelocityUpper = 3.9;
+    double kScaleLower = 0.5;
+    double kScaleUpper = 1.0;
+    double kDragLower = 0.95;
+    double kDragUpper = 0.998;
+    double kPosShift = 0.01;
+    double kTimeShift = 0.2;
+    double kScaleShift = 4.0;
+    double kForceShift = 0.04;
+
+    ofPoint position;
+    ofPoint velocity;
+    ofPoint force;
+        
     float drag;
-    float uniqueVal;
+    float random_val;
     float scale;
     
-    vector<ofPoint> *attractPoints;
+    vector<ofPoint> *attract_points;
 };
 
 

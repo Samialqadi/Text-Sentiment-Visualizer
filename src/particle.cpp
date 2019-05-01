@@ -2,77 +2,42 @@
 
 //------------------------------------------------------------------
 Particle::Particle() {
-    attractPoints = NULL;
+    attract_points = NULL;
 }
 
 //------------------------------------------------------------------
-void Particle::setAttractPoints(vector<ofPoint> *attract) {
-    attractPoints = attract;
+void Particle::SetAttractPoints(vector<ofPoint> *attract) {
+    attract_points = attract;
 }
 
 //------------------------------------------------------------------
-void Particle::reset() {
-    //the unique val allows us to set properties slightly differently for each particle
-    uniqueVal = ofRandom(-10000, 10000);
+void Particle::Reset() {
+    random_val = ofRandom(kRandomLower, kRandomUpper);
     
-    pos.x = ofRandomWidth();
-    pos.y = ofRandomHeight();
+    position.x = ofRandomWidth();
+    position.y = ofRandomHeight();
     
-    vel.x = ofRandom(-3.9, 3.9);
-    vel.y = ofRandom(-3.9, 3.9);
+    velocity.x = ofRandom(kVelocityLower, kVelocityUpper);
+    velocity.y = ofRandom(kVelocityLower, kVelocityUpper);
     
-    frc = ofPoint(0, 0, 0);
+    force = ofPoint(0, 0, 0);
     
-    scale = ofRandom(0.5, 1.0);
+    scale = ofRandom(kScaleLower, kScaleUpper);
     
-    drag = ofRandom(0.95, 0.998);
+    drag = ofRandom(kDragLower, kDragUpper);
 }
 
 //------------------------------------------------------------------
-void Particle::update() {
-    //1 - APPLY THE FORCES
+void Particle::Update() {
+    ApplyForces();
     
-    ofPoint attractPt(ofGetWidth() / 2, ofGetHeight() / 2);
-    frc = attractPt - pos;
+    UpdatePosition();
     
-    //Get the distance and only repel points close to the mouse
-    float dist = frc.length();
-    frc.normalize();
-    
-    vel *= drag;
-    if (dist < 150) {
-        vel += -frc * 0.6; //notice the frc is negative
-    } else {
-        //if the particles are not close to us, lets add a little bit of random movement using noise. this is where uniqueVal comes in handy.
-        frc.x = ofSignedNoise(uniqueVal, pos.y * 0.01, ofGetElapsedTimef() * 0.2);
-        frc.y = ofSignedNoise(uniqueVal, pos.x * 0.01, ofGetElapsedTimef() * 0.2);
-        vel += frc * 0.04;
-    }
-    
-    //2 - UPDATE OUR POSITION
-    
-    pos += vel;
-    
-    //3 - LIMIT THE PARTICLES TO STAY ON SCREEN
-    if (pos.x > ofGetWidth()) {
-        pos.x = ofGetWidth();
-        vel.x *= -1.0;
-    } else if (pos.x < 0) {
-        pos.x = 0;
-        vel.x *= -1.0;
-    }
-    if (pos.y > ofGetHeight()) {
-        pos.y = ofGetHeight();
-        vel.y *= -1.0;
-    } else if (pos.y < 0) {
-        pos.y = 0;
-        vel.y *= -1.0;
-    }
-    
+    RestrictToScreen();
 }
 
 //------------------------------------------------------------------
-void Particle::draw(std::string tone) {
+void Particle::Draw(std::string tone) {
     if (tone == "") {
         ofColor white(255, 255, 255);
         ofSetColor(white);
@@ -99,5 +64,38 @@ void Particle::draw(std::string tone) {
         ofSetColor(light_blue);
     }
     
-    ofDrawCircle(pos.x, pos.y, scale * 4.0);
+    ofDrawCircle(position.x, position.y, scale * kScaleShift);
+}
+
+void Particle::ApplyForces() {
+    ofPoint attraction_point(ofGetWidth() / 2, ofGetHeight() / 2);
+    force = attraction_point - position;
+    
+    velocity *= drag;
+    
+    force.x = ofSignedNoise(random_val, position.y * kPosShift, ofGetElapsedTimef() * kTimeShift);
+    force.y = ofSignedNoise(random_val, position.x * kPosShift, ofGetElapsedTimef() * kTimeShift);
+    velocity += force * kForceShift;
+}
+
+void Particle::UpdatePosition() {
+    position += velocity;
+}
+
+void Particle::RestrictToScreen() {
+    if (position.x > ofGetWidth()) {
+        position.x = ofGetWidth();
+        velocity.x *= -1.0;
+    } else if (position.x < 0) {
+        position.x = 0;
+        velocity.x *= -1.0;
+    }
+    
+    if (position.y > ofGetHeight()) {
+        position.y = ofGetHeight();
+        velocity.y *= -1.0;
+    } else if (position.y < 0) {
+        position.y = 0;
+        velocity.y *= -1.0;
+    }
 }

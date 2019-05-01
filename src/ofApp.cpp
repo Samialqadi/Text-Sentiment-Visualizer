@@ -6,7 +6,6 @@ void ofApp::setup() {
     
     ofSetVerticalSync(true);
     
-    //Call API and build vector from user input
     std::string answer = ofSystemTextBoxDialog("What text would you like to put into motion?");
     sentence_tones = Parser(ToneAnalyzer(BuildJson(answer)));
 
@@ -18,22 +17,22 @@ void ofApp::setup() {
 //--------------------------------------------------------------
 void ofApp::resetParticles() {
     for (unsigned int i = 0; i < particles.size(); i++) {
-        particles[i].reset();
+        particles[i].Reset();
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
     for (unsigned int i = 0; i < particles.size(); i++) {
-        particles[i].update();
+        particles[i].Update();
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
     ofBackgroundGradient(ofColor(60, 60, 60), ofColor(10, 10, 10));
-
     double last_frame = 0.0;
+    
     if (ofGetLastFrameTime() < 0.5) {
         last_frame = ofGetLastFrameTime();
     }
@@ -46,7 +45,7 @@ void ofApp::draw() {
     if (current_num < sentence_tones.size()) {
         for (int sen = 0; sen <= current_num; ++sen) {
             for (unsigned int i = num_of_particles * sen; i < num_of_particles * (sen + 1); i++) {
-                particles[i].draw(SentencesTone::FindStrongestTone(sentence_tones[sen].tones));
+                particles[i].Draw(SentencesTone::FindStrongestTone(sentence_tones[sen].tones));
             }
         }
         

@@ -8,11 +8,6 @@
 #ifndef json_handler_hpp
 #define json_handler_hpp
 
-#define OBJECT 3
-#define ARRAY 4
-#define STRING 5
-#define NUMBER 6
-
 #include <stdio.h>
 #include <string>
 #include "sentences_tone.hpp"

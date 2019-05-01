@@ -54,7 +54,6 @@ std::string BuildJson(const std::string input) {
     std::vector<char> vector_cpy(input.length() + 1);
     strcpy(vector_cpy.data(), input.c_str());
 
-    
     writer.StartObject();
     writer.Key("text");
     writer.String(vector_cpy.data());
@@ -64,9 +63,5 @@ std::string BuildJson(const std::string input) {
 }
 
 bool IsValidJson(std::string json) {
-    if (json.find("sentences_tone") == std::string::npos) {
-        return false;
-    }
-    
-    return !(json == "{}" || json == "{\"code\":400,\"sub_code\":\"C00007\",\"error\":\"No text given\"}" || json == "{\"document_tone\":{\"tones\":[]}}");
+    return json.find("sentences_tone") != std::string::npos;
 }
