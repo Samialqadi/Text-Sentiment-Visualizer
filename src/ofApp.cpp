@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
-    title.load("AntipastoPro-Hairline_trial.ttf", 40);
+    title.load("AntipastoPro-Extralight_trial.ttf", 50);
     
     ofSetVerticalSync(true);
     
@@ -44,15 +44,17 @@ void ofApp::draw() {
     }
     
     if (current_num < sentence_tones.size()) {
-        ofSetColor(255, 255, 255);
-        title.drawString(sentence_tones[current_num].text, ofGetWidth() / 2, ofGetHeight() / 2);
-
         for (int sen = 0; sen <= current_num; ++sen) {
             for (unsigned int i = num_of_particles * sen; i < num_of_particles * (sen + 1); i++) {
-                //Not always going to have a tone. Implement something here to fix this
-                particles[i].draw(FindStrongestTone(sentence_tones[sen].tones));
+                particles[i].draw(SentencesTone::FindStrongestTone(sentence_tones[sen].tones));
             }
         }
+        
+        ofSetColor(255, 255, 255);
+        title.drawString(sentence_tones[current_num].text, (ofGetWidth() / 2) - (title.stringWidth(sentence_tones[current_num].text) / 2), ofGetHeight() / 2);
+
+    } else if (current_num == sentence_tones.size()) {        
+        current_num = 0;
     }
     
     total_frame_time += last_frame;

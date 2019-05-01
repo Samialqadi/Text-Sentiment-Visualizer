@@ -24,7 +24,7 @@ std::vector<SentencesTone::Sentence> Parser(std::string json) {
     
     rapidjson::Document document;
     document.Parse(vector_cpy.data());
-    
+        
     for (int i = 0; i < document["sentences_tone"].Size(); i++) {
         SentencesTone::Sentence sentence;
         
@@ -64,5 +64,9 @@ std::string BuildJson(const std::string input) {
 }
 
 bool IsValidJson(std::string json) {
+    if (json.find("sentences_tone") == std::string::npos) {
+        return false;
+    }
+    
     return !(json == "{}" || json == "{\"code\":400,\"sub_code\":\"C00007\",\"error\":\"No text given\"}" || json == "{\"document_tone\":{\"tones\":[]}}");
 }

@@ -26,8 +26,8 @@ class ofApp : public ofBaseApp {
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-    
-    ofxCenteredTrueTypeFont title;
+        
+    ofTrueTypeFont title;
     
     std::vector<SentencesTone::Sentence> sentence_tones;
     int current_num = 0;
@@ -35,7 +35,7 @@ class ofApp : public ofBaseApp {
     vector<Particle> particles;
     vector<ofPoint> attractPoints;
     vector<ofPoint> attractPointsWithMovement;
-    
+        
     double total_frame_time = 0;
     int num_of_particles = 500;
     

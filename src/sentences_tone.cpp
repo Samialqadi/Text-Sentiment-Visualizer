@@ -7,7 +7,7 @@
 
 #include "sentences_tone.hpp"
 
-std::string FindStrongestTone(std::vector<SentencesTone::Tone> tones) {
+std::string SentencesTone::FindStrongestTone(std::vector<SentencesTone::Tone> tones) {
     if (tones.empty()) {
         return "";
     }

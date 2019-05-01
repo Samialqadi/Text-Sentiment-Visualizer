@@ -29,8 +29,8 @@ public:
     
     std::vector<Sentence> sentence_tones;
     
+    static std::string FindStrongestTone(std::vector<SentencesTone::Tone> tones);
+    
 };
-
-std::string FindStrongestTone(std::vector<SentencesTone::Tone> tones);
 
 #endif /* sentences_tone_hpp */
