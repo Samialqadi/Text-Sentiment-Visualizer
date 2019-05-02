@@ -138,7 +138,7 @@ void ofApp::DrawLegendToggle() {
     
     ofDrawRectRounded(legend_toggle, 10);
     
-    ofSetColor(0, 0, 0);
+    ofSetColor(0, 0, 0); //white
     std::string small_legend_text = "Click for color legend";
     small_legend.drawString(small_legend_text, ofGetWidth() * 0.5 - (small_legend.stringWidth(small_legend_text) / 2), ofGetHeight() * 0.97);
 }
