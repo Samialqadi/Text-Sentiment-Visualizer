@@ -1,11 +1,13 @@
 # Development Log
 ## In Progress
-- Testing with Catch
-- Displaying sentences on GUI foreground
-- Changing color of particles background per the emotion of the text
+- Extend program with music
 
 ## Completed
+- Testing with Catch
 - Parse JSON from API with library
+- Displaying sentences on GUI foreground
+- Changing color of particles background per the emotion of the text
+- Added Legend for what color maps to what emotion
 - Explore openFrameworks GUI functionalities
 - Explored JSON library
 - Explored IBM Watson API
@@ -23,3 +25,6 @@ Moving away from the technical side of things, I created mockup GUI designs to h
 
 ## Week 2
 I successfully linked the API and all libraries together. I still need to extensively test these functionalities to make sure I don't move forward with faulty code. Also, I was able to figure out how to take user input through a text box, although it wasn't in the fashion that I would've liked. I was hoping to have a normal text box on the GUI landing page, however text boxes from ofGui were extremely ugly and not what I was hoping for, so I resorted to a pop up window style text box. Moving forward, I need to implement my particle system to work in the fashion that I would like, and perhaps implement further functionalities if I get the chance.
+
+## Week 3
+After much difficulty, I have accomplished the minimum viable product. The GUI is now fully functional and shows the emotion of each sentence by adding particles of the respective color to the background of the program. Also, I was able to add a legend that shows what color maps to what emotion because some of them aren't entirely all the easy to assume. Moving forward, I would like to extend the project further by adding in elements of music and perhaps text to scene generation. I would have loved to implement some of these features, however it proved to be quite difficult and requires more time.
