@@ -4,7 +4,7 @@ A text visualizer that displays the sentiment of sentences through a particle sy
 ![](demo.gif)
 
 ## Setup
-1. Clone repository
+1. Clone repository into OF_ROOT myApps folder
 2. Follow respective setup steps for libraries
 3. Acquire API key for IBM Watson
 4. Insert API key in sentiment.cpp
