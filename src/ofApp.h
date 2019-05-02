@@ -26,8 +26,13 @@ class ofApp : public ofBaseApp {
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-        
-    ofTrueTypeFont title;
+    
+        void DrawLegend();
+        void DrawLegendToggle();
+            
+    ofTrueTypeFont foreground_sentence;
+    ofTrueTypeFont small_legend;
+    ofTrueTypeFont legend_emotion;
     
     std::vector<SentencesTone::Sentence> sentence_tones;
     int current_num = 0;
@@ -35,6 +40,13 @@ class ofApp : public ofBaseApp {
     vector<Particle> particles;
     vector<ofPoint> attractPoints;
     vector<ofPoint> attractPointsWithMovement;
+    
+    enum State {
+        LEGEND,
+        NO_LEGEND
+    };
+    
+    State current_state_;
         
     double total_frame_time = 0;
     int num_of_particles = 500;

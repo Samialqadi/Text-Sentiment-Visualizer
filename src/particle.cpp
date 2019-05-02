@@ -1,16 +1,13 @@
 #include "particle.hpp"
 
-//------------------------------------------------------------------
 Particle::Particle() {
     attract_points = NULL;
 }
 
-//------------------------------------------------------------------
 void Particle::SetAttractPoints(vector<ofPoint> *attract) {
     attract_points = attract;
 }
 
-//------------------------------------------------------------------
 void Particle::Reset() {
     random_val = ofRandom(kRandomLower, kRandomUpper);
     
@@ -27,7 +24,6 @@ void Particle::Reset() {
     drag = ofRandom(kDragLower, kDragUpper);
 }
 
-//------------------------------------------------------------------
 void Particle::Update() {
     ApplyForces();
     
@@ -36,11 +32,10 @@ void Particle::Update() {
     RestrictToScreen();
 }
 
-//------------------------------------------------------------------
 void Particle::Draw(std::string tone) {
     if (tone == "") {
-        ofColor white(255, 255, 255);
-        ofSetColor(white);
+        ofColor gray(128, 128, 128);
+        ofSetColor(gray);
     } else if (tone == "joy") {
         ofColor yellow(255, 255, 0);
         ofSetColor(yellow);
@@ -54,8 +49,8 @@ void Particle::Draw(std::string tone) {
         ofColor red(255, 0, 0);
         ofSetColor(red);
     } else if (tone == "analytical") {
-        ofColor gray(128, 128, 128);
-        ofSetColor(gray);
+        ofColor purple(128, 0, 128);
+        ofSetColor(purple);
     } else if (tone == "confident") {
         ofColor brown(165, 42, 42);
         ofSetColor(brown);
