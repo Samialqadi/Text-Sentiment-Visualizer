@@ -10,6 +10,7 @@
 
 #include "restclient-cpp/connection.h"
 #include "restclient-cpp/restclient.h"
+#include "api_information.h"
 #include "json_handler.hpp"
 
 std::string ToneAnalyzer(std::string json) {
@@ -20,7 +21,7 @@ std::string ToneAnalyzer(std::string json) {
     RestClient::Connection *conn = new RestClient::Connection("https://gateway.watsonplatform.net/tone-analyzer/api");
     
     // configure basic auth
-    conn->SetBasicAuth("apikey", "UcoL6cwUaDMZxniXJ6s6amNj07h0uPP4vsN04crzRrK_");
+    conn->SetBasicAuth("apikey", APIKEY);
     
     // set connection timeout to 5s
     conn->SetTimeout(5);
